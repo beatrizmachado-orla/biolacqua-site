@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biolacqua - Soluções em Tratamento de Água</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-10">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="assets/images/logo-biolacqua.png" alt="Biolacqua Logo" class="h-12">
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-biolacqua hover:text-biolacqua transition-all">Início</a>
+                    <a href="#about" class="text-gray-600 hover:text-biolacqua transition-all">Sobre</a>
+                    <a href="#services" class="text-gray-600 hover:text-biolacqua transition-all">Serviços</a>
+                    <a href="#products" class="text-gray-600 hover:text-biolacqua transition-all">Produtos</a>
+                    <a href="#contact" class="text-gray-600 hover:text-biolacqua transition-all">Contato</a>
+                </div>
+                <button class="md:hidden focus:outline-none" id="menu-toggle">
+                    <i data-feather="menu"></i>
+                </button>
+            </div>
+            <div class="md:hidden hidden mt-4" id="mobile-menu">
+                <a href="#home" class="block py-2 text-biolacqua">Início</a>
+                <a href="#about" class="block py-2 text-gray-600">Sobre</a>
+                <a href="#services" class="block py-2 text-gray-600">Serviços</a>
+                <a href="#products" class="block py-2 text-gray-600">Produtos</a>
+                <a href="#contact" class="block py-2 text-gray-600">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient pt-32 pb-20 text-white">
+        <div class="container h-[50vh] mx-auto px-6 flex items-center">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Soluções em Tratamento de Água</h1>
+                    <p class="text-xl mb-8">Tecnologia e qualidade para garantir água pura e segura para sua empresa ou residência.</p>
+                    <a href="#contact" class="bg-white text-biolacqua px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all">Fale Conosco</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-biolacqua mb-4">Sobre a Biolacqua</h2>
+                <div class="w-20 h-1 bg-biolacqua mx-auto"></div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                    <img src="assets/images/frascos.jpg" alt="Equipe Biolacqua" class="rounded-lg shadow-md w-full h-full object-cover">
+                </div>
+                <div class="md:w-1/2 md:pl-12" data-aos="fade-left">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Visão Geral da Empresa</h3>
+                    <p class="text-gray-600 mb-6">A Biolacqua atua há cerca de uma década no mercado nacional. É reconhecida pela rapidez e confiabilidade, buscando sempre superar as expectativas de seus clientes, com uma equipe técnica qualificada.</p>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Nossos Valores</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i data-feather="check-circle" class="text-green-500 mr-2"></i>
+                            <span class="text-gray-600">Compromisso com a qualidade</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check-circle" class="text-green-500 mr-2"></i>
+                            <span class="text-gray-600">Inovação tecnológica</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check-circle" class="text-green-500 mr-2"></i>
+                            <span class="text-gray-600">Sustentabilidade ambiental</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check-circle" class="text-green-500 mr-2"></i>
+                            <span class="text-gray-600">Atendimento personalizado</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section id="clients" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-biolacqua mb-4">Quem Atendemos</h2>
+                <div class="w-20 h-1 bg-biolacqua mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8" data-even-cards="true">
+                <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-biolacqua mb-4">
+                        <i data-feather="briefcase" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Empresas</h3>
+                    <p class="text-gray-600">Soluções sob medida para demandas corporativas e operacionais.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all" data-aos="fade-up" data-aos-delay="150">
+                    <div class="text-biolacqua mb-4">
+                        <i data-feather="heart" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Hospitais</h3>
+                    <p class="text-gray-600">Atendimento alinhado a requisitos sanitários e de segurança.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-biolacqua mb-4">
+                        <i data-feather="book" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Escolas</h3>
+                    <p class="text-gray-600">Monitoramento e qualidade para ambientes de aprendizado.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all" data-aos="fade-up" data-aos-delay="250">
+                    <div class="text-biolacqua mb-4">
+                        <i data-feather="shield" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Órgãos Públicos</h3>
+                    <p class="text-gray-600">Conformidade técnica e regulatória para o setor público.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-biolacqua mb-4">
+                        <i data-feather="cpu" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Indústrias</h3>
+                    <p class="text-gray-600">Suporte a processos, reuso e atendimento a normas.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all" data-aos="fade-up" data-aos-delay="350">
+                    <div class="text-biolacqua mb-4">
+                        <i data-feather="home" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Condomínios</h3>
+                    <p class="text-gray-600">Água segura para uso coletivo e rotina condominial.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all md:col-span-3" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-biolacqua mb-4">
+                        <i data-feather="users" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Comunidade em geral</h3>
+                    <p class="text-gray-600">Atendimento amplo com foco em saúde, segurança e bem-estar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-biolacqua mb-4">Nossos Serviços</h2>
+                <div class="w-20 h-1 bg-biolacqua mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8" data-even-cards="true">
+                <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-biolacqua mb-4">
+                        <i data-feather="droplet" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Análises de Águas</h3>
+                    <p class="text-gray-600">Potável, irrigação, pulverização, subterrânea, superficial e residuais.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-biolacqua mb-4">
+                        <i data-feather="life-buoy" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Balneabilidade e Recreação</h3>
+                    <p class="text-gray-600">Ensaios para avaliação de segurança e qualidade para banho.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-biolacqua mb-4">
+                        <i data-feather="trash-2" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Efluentes e Resíduos (CADRI)</h3>
+                    <p class="text-gray-600">Análises de efluentes e caracterização de resíduos com suporte CADRI.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-biolacqua mb-4">
+                        <i data-feather="map-pin" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Poços: Regularização e Controle</h3>
+                    <p class="text-gray-600">Regularização, manutenção e controle de poços de água.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-biolacqua mb-4">
+                        <i data-feather="refresh-cw" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">ETA’s / ETE’s e Reuso</h3>
+                    <p class="text-gray-600">Estações de Tratamento de Água e Efluentes, com soluções de reuso.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-biolacqua mb-4">
+                        <i data-feather="filter" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Tratamento: Piscina, Poço e Efluentes</h3>
+                    <p class="text-gray-600">Tratamentos especializados conforme a necessidade de cada aplicação.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-biolacqua mb-4">
+                        <i data-feather="wind" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Análise de Ar em Ambientes</h3>
+                    <p class="text-gray-600">Avaliação da qualidade do ar em ambientes internos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-biolacqua mb-4">Nossos Produtos</h2>
+                <div class="w-20 h-1 bg-biolacqua mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <img src="http://static.photos/technology/640x360/101" alt="Filtro de Água" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Filtros Industriais</h3>
+                        <p class="text-gray-600 mb-4">Sistemas de filtração para alta vazão com diferentes especificações técnicas.</p>
+                        <a href="#contact" class="text-biolacqua font-medium hover:text-biolacqua transition-all">Solicitar Orçamento</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <img src="http://static.photos/technology/640x360/102" alt="Sistema de Ozonização" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Geradores de Ozônio</h3>
+                        <p class="text-gray-600 mb-4">Equipamentos para desinfecção por ozônio em diferentes capacidades.</p>
+                        <a href="#contact" class="text-biolacqua font-medium hover:text-biolacqua transition-all">Solicitar Orçamento</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <img src="http://static.photos/technology/640x360/103" alt="Purificador" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Purificadores Residenciais</h3>
+                        <p class="text-gray-600 mb-4">Soluções compactas para tratamento de água em residências e pequenos comércios.</p>
+                        <a href="#contact" class="text-biolacqua font-medium hover:text-biolacqua transition-all">Solicitar Orçamento</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality Section -->
+    <section id="quality" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-biolacqua mb-4">Gestão da Qualidade</h2>
+                <div class="w-20 h-1 bg-biolacqua mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 items-start">
+                <div data-aos="fade-right">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Sistema de Gestão Integrado (SGI)</h3>
+                    <p class="text-gray-600">A Biolacqua opera com um Sistema de Gestão Integrado (SGI) baseado em normas da ISO 17025, garantindo qualidade e rastreabilidade em seus processos laboratoriais.</p>
+                </div>
+                <div data-aos="fade-left">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Acreditações e INMETRO</h3>
+                    <p class="text-gray-600">Em janeiro de 2020, a Biolacqua ampliou significativamente seu escopo de acreditação pelo INMETRO, atingindo a marca de 150 ensaios acreditados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-biolacqua text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4">Depoimentos</h2>
+                <div class="w-20 h-1 bg-white mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-biolacqua rounded-lg p-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <img src="http://static.photos/people/200x200/101" alt="Cliente" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Carlos Silva</h4>
+                            <p class="text-blue-200 text-sm">Indústria Alimentícia</p>
+                        </div>
+                    </div>
+                    <p class="text-blue-100">"A Biolacqua implementou um sistema completo de tratamento de água em nossa fábrica. O resultado foi excelente e o atendimento impecável."</p>
+                </div>
+                <div class="bg-biolacqua rounded-lg p-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <img src="http://static.photos/people/200x200/102" alt="Cliente" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Ana Paula Oliveira</h4>
+                            <p class="text-blue-200 text-sm">Condomínio Residencial</p>
+                        </div>
+                    </div>
+                    <p class="text-blue-100">"Depois de instalar o sistema de ozonização recomendado pela Biolacqua, nossa água nunca mais teve problemas de qualidade. Recomendo!"</p>
+                </div>
+                <div class="bg-biolacqua rounded-lg p-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-4">
+                        <img src="http://static.photos/people/200x200/103" alt="Cliente" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Roberto Santos</h4>
+                            <p class="text-blue-200 text-sm">Hotel Resort</p>
+                        </div>
+                    </div>
+                    <p class="text-blue-100">"Profissionais extremamente capacitados. Nos ajudaram a resolver um problema crônico de qualidade da água em nosso resort."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-biolacqua mb-4">Entre em Contato</h2>
+                <div class="w-20 h-1 bg-biolacqua mx-auto"></div>
+            </div>
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-8" data-aos="fade-right">
+                    <h3 class="text-2xl font-semibold mb-6">Informações de Contato</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i data-feather="map-pin" class="text-biolacqua mr-4 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold">Endereço</h4>
+                                <p class="text-gray-600">Rua José Tabacow, 170 – Tatuapé<br>São Paulo – SP, CEP 03409-020</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i data-feather="phone" class="text-biolacqua mr-4 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold">Telefone</h4>
+                                <p class="text-gray-600">(11) 2651-6733 / 2651-6830 — Fax: 2652-9613</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i data-feather="mail" class="text-biolacqua mr-4 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold">E-mail</h4>
+                                <p class="text-gray-600">biolacqua@biolacqua.com.br</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i data-feather="clock" class="text-biolacqua mr-4 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold">Horário de Atendimento</h4>
+                                <p class="text-gray-600">Segunda a Sexta: 8h às 18h<br>Sábado: 8h às 12h</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2" data-aos="fade-left">
+                    <form class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Nome</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 font-medium mb-2">E-mail</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div class="mb-4">
+                            <label for="phone" class="block text-gray-700 font-medium mb-2">Telefone</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div class="mb-4">
+                            <label for="subject" class="block text-gray-700 font-medium mb-2">Assunto</label>
+                            <select id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Selecione um assunto</option>
+                                <option value="orcamento">Solicitar Orçamento</option>
+                                <option value="duvida">Tirar Dúvidas</option>
+                                <option value="suporte">Suporte Técnico</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Mensagem</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-biolacqua text-white py-3 rounded-lg font-semibold hover:bg-biolacqua transition-all">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Biolacqua</h3>
+                    <p class="text-gray-400">Soluções em tratamento de água com tecnologia e qualidade desde 2005.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-all">Início</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-all">Sobre Nós</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-all">Serviços</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-white transition-all">Produtos</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-all">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Serviços</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all">Tratamento de Água</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all">Filtração</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all">Ozonização</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all">Análise de Água</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all">Manutenção</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Redes Sociais</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-all">
+                            <i data-feather="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-all">
+                            <i data-feather="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-all">
+                            <i data-feather="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-all">
+                            <i data-feather="youtube" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Biolacqua. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+	<a href="#" class="whatsapp-float" aria-label="Contato via WhatsApp" target="_blank" rel="noopener">
+		<svg viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+			<path d="M19.11 17.35c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.12-.41-2.14-1.31-.79-.7-1.32-1.57-1.48-1.84-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.46-.16 0-.34-.02-.52-.02s-.48.07-.73.34c-.25.27-.95.93-.95 2.27 0 1.34.97 2.63 1.11 2.81.14.18 1.92 2.93 4.66 4.11.65.28 1.16.45 1.56.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"/>
+			<path d="M26.6 5.41C23.74 2.54 20 1 16.01 1 7.72 1 1 7.72 1 16.01c0 2.64.69 5.2 2 7.46L1 31l7.7-2.01c2.2 1.2 4.69 1.83 7.31 1.83h0C24.3 30.82 31 24.1 31 15.81c0-3.99-1.56-7.74-4.4-10.4zM16.01 28.6h0c-2.4 0-4.76-.64-6.82-1.86l-.49-.29-4.57 1.19 1.22-4.45-.3-.51C3.81 20.53 3.2 18.3 3.2 16.01c0-7.07 5.75-12.82 12.82-12.82 3.42 0 6.64 1.33 9.06 3.75s3.75 5.64 3.75 9.06c-.01 7.06-5.76 12.61-12.82 12.61z"/>
+		</svg>
+	</a>
+</body>
+</html> 
