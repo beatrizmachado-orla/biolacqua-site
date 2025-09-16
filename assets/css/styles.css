@@ -47,4 +47,29 @@
 .whatsapp-float svg {
 	width: 28px;
 	height: 28px;
-} 
+}
+@keyframes marquee {
+0% { transform: translateX(0%); }
+100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+display: flex;
+width: max-content;
+animation: marquee 30s linear infinite;
+}
+  /* melhora legibilidade geral */
+  .prose p { line-height: 1.7 }
+  .prose h2 { margin-top: 0.25rem }
+  .prose ul { list-style: disc; margin-left: 1.25rem; padding-left: 0.25rem }
+
+  /* capa mais alta em telas médias+ */
+  @media (min-width: 768px){
+    #service-cover img { height: 22rem; } /* ~352px */
+  }
+
+  /* espaçamento: quando navegar por âncora, não ficar sob a navbar */
+  section { scroll-margin-top: 96px; }
+
+  /* cartões laterais mais elegantes */
+  aside .rounded-xl { border-color: #e8eef3; }
+  #sidebar-services a:hover { text-decoration: underline; }

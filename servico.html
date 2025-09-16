@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Serviço | Biolacqua</title>
+  <meta name="description" content="Detalhes dos serviços Biolacqua.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    .sticky-safe { position: sticky; top: 96px }
+    .toc a.active { color: #1fa0b8; font-weight: 700 }
+    .accordion-item + .accordion-item { border-top: 1px solid #e5e7eb }
+    .prose ul { list-style: disc; margin-left: 1.25rem }
+  </style>
+</head>
+<body class="bg-white text-slate-800">
+  <!-- Navbar -->
+  <nav class="bg-white/90 backdrop-blur shadow-sm fixed w-full z-10">
+    <div class="container mx-auto px-6 py-3">
+      <div class="flex justify-between items-center">
+        <img src="assets/images/logo-biolacqua.png" alt="Biolacqua Logo" class="h-12">
+        <div class="hidden md:flex space-x-8 text-sm">
+          <a href="/" class="text-slate-600 hover:text-biolacqua">Início</a>
+          <a href="/#about" class="text-slate-600 hover:text-biolacqua">Sobre</a>
+          <a href="/#services" class="text-biolacqua font-medium">Serviços</a>
+          <a href="/#products" class="text-slate-600 hover:text-biolacqua">Produtos</a>
+          <a href="/#contact" class="text-slate-600 hover:text-biolacqua">Contato</a>
+        </div>
+        <button class="md:hidden" id="menu-toggle"><i data-feather="menu"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="pt-20 bg-gradient-to-b from-slate-50 to-white">
+    <div class="container mx-auto px-6 py-12">
+      <nav class="text-sm text-slate-500 mb-3">
+        <a href="/" class="hover:text-biolacqua">Início</a>
+        <span class="mx-2">/</span>
+        <a href="/#services" class="hover:text-biolacqua">Serviços</a>
+        <span class="mx-2">/</span>
+        <span id="bread-service">Serviço</span>
+      </nav>
+      <h1 id="service-title" class="text-3xl md:text-4xl font-bold text-biolacqua">Serviço</h1>
+      <p id="service-subtitle" class="mt-2 text-slate-600 max-w-3xl">Detalhes do serviço.</p>
+    </div>
+  </header>
+
+  <!-- Conteúdo -->
+  <main class="py-12">
+    <div class="container mx-auto px-6 flex flex-col lg:flex-row gap-10">
+      <!-- Sidebar -->
+      <aside class="lg:w-1/4">
+        <div class="sticky-safe">
+          <div class="bg-white border rounded-xl shadow-sm p-5">
+            <h3 class="text-xs font-semibold text-slate-500 uppercase mb-3">Navegação</h3>
+            <ul class="space-y-2 toc text-slate-600">
+              <li><a href="#visao-geral">Visão geral</a></li>
+              <li><a href="#metodologia">Metodologia</a></li>
+              <li><a href="#escopo">Escopo / Parâmetros</a></li>
+              <li><a href="#microbiologia">Microbiologia</a></li>
+              <li><a href="#cta">Orçamento</a></li>
+            </ul>
+          </div>
+          <div class="bg-white border rounded-xl shadow-sm p-5 mt-6">
+            <h3 class="text-xs font-semibold text-slate-500 uppercase mb-3">Produtos e Serviços</h3>
+            <ul class="space-y-2 text-sm" id="sidebar-services"></ul>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Principal -->
+      <article class="lg:w-3/4">
+        <div class="bg-white rounded-2xl shadow-md p-6 md:p-8">
+          <div id="service-cover" class="w-full mb-6 overflow-hidden rounded-xl bg-slate-100"></div>
+
+          <section id="visao-geral" class="prose max-w-none mb-8">
+            <h2 class="text-2xl font-bold">Visão geral</h2>
+            <p id="service-intro"></p>
+            <p id="service-intro-2"></p>
+          </section>
+
+          <section id="metodologia" class="prose max-w-none mb-8">
+            <h2 class="text-2xl font-bold">Metodologia</h2>
+            <p id="service-method"></p>
+            <p id="service-refs" class="text-sm text-slate-500">
+              Consulte nosso escopo acreditado:
+              <a id="service-scope-link" href="#" target="_blank" rel="noopener" class="text-biolacqua underline">Ver escopo</a>
+            </p>
+            <p id="service-legal"></p>
+          </section>
+
+          <section id="escopo" class="prose max-w-none mb-8">
+            <h2 class="text-2xl font-bold">Escopo / Parâmetros</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div><h3 class="font-semibold">Análises Inorgânicas</h3><ul id="inorganicos"></ul></div>
+              <div><h3 class="font-semibold">Capacidades Orgânicas</h3><ul id="organicos"></ul></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6 mt-6">
+              <div><h3 class="font-semibold">Pesticidas / Herbicidas</h3><ul id="pesticidas"></ul></div>
+              <div><h3 class="font-semibold">Outros</h3><ul id="outros"></ul></div>
+            </div>
+          </section>
+
+          <section id="microbiologia" class="prose max-w-none mb-8">
+            <h2 class="text-2xl font-bold">Microbiologia</h2>
+            <ul id="micro-list"></ul>
+          </section>
+
+          <section id="cta" class="mt-8">
+            <div class="bg-gradient-to-r from-biolacqua to-cyan-500 text-white rounded-xl p-6 flex flex-col">
+                <div>
+                    <h3 class="text-xl font-semibold">Faça um orçamento</h3>
+                    <p>Entre em contato ou solicite nossos pacotes de análises.</p>
+                </div>
+                <div class="flex gap-3">
+                    <a href="/#contact"
+                        class="px-5 py-3 rounded-lg bg-white text-biolacqua font-semibold shadow-sm hover:shadow transition">
+                        Solicitar orçamento
+                    </a>
+                    <button type="button"
+                            class="px-5 py-3 rounded-lg bg-black/20 hover:bg-black/25 font-semibold transition"
+                            onclick="navigator.clipboard && navigator.clipboard.writeText('biolacqua@biolacqua.com.br')">
+                        biolacqua@biolacqua.com.br
+                    </button>
+                </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Prev/Next -->
+        <div class="mt-8 flex justify-between text-sm">
+          <a class="text-slate-600 hover:text-biolacqua" id="prev-service"></a>
+          <a class="text-slate-600 hover:text-biolacqua" id="next-service"></a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+<script>
+  // Caminho do JSON (relativo) + cache-buster para testes
+  const SERVICES_JSON_PATH = "./assets/data/services.json?v=" + Date.now();
+
+  const $  = (s) => document.querySelector(s);
+
+  // Helpers para mostrar/esconder
+  function show(el){ if(el){ el.classList.remove('hidden'); el.style.removeProperty('display'); } }
+  function hide(el){ if(el){ el.classList.add('hidden'); el.style.display = 'none'; } }
+
+  // Seta texto em um elemento; se vazio, esconde apenas esse elemento
+  function setTextOrHide(selector, value){
+    const el = $(selector);
+    if (!el) return false;
+    const has = value !== undefined && value !== null && String(value).trim() !== "";
+    if (!has){ hide(el); return false; }
+    el.textContent = value;
+    show(el);
+    return true;
+  }
+
+  // Normaliza arrays de listas (remove vazios, null, 0, "nenhuma informação")
+  function toArrayNormalized(val) {
+    if (val === 0 || val === null || val === undefined) return [];
+    if (val === "nenhuma informação") return [];
+    if (Array.isArray(val)) {
+      return val
+        .map(v => (v == null ? "" : String(v)))
+        .map(s => s.trim())
+        .filter(Boolean);
+    }
+    const s = String(val).trim();
+    if (!s || s.toLowerCase() === "nenhuma informação") return [];
+    return [s];
+  }
+
+  // Escapa caracteres HTML básicos
+  function escapeHtml(str) {
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  // Preenche UL; se vazio, esconde só a COLUNA daquela UL
+ function fillListColumn(ulId, arr){
+    const ul = document.getElementById(ulId);
+    if (!ul) return false;
+
+    // Normaliza a lista (remove "", null, 0, "nenhuma informação")
+    const list = toArrayNormalized(arr);
+
+    // Escolhe com segurança o "box" a ocultar:
+    // - Para escopo: o pai IMEDIATO <div> é a coluna
+    // - Para microbiologia: NÃO use closest('div'); esconda apenas a UL (ou a section, se quiser)
+    let box;
+    if (ulId === 'micro-list') {
+      // escondemos só a UL (ou troque para: document.getElementById('microbiologia'))
+      box = document.getElementById('microbiologia'); 
+    } else {
+      // nas colunas do escopo, o pai imediato é o <div> da coluna
+      box = ul.parentElement && ul.parentElement.tagName === 'DIV' ? ul.parentElement : ul;
+    }
+
+    if (list.length === 0){
+      ul.innerHTML = "";
+      box.classList.add("hidden");
+      box.style.display = "none";
+      return false;
+    }
+
+    // Escapa HTML básico
+    const escapeHtml = s => String(s)
+      .replace(/&/g,"&amp;").replace(/</g,"&lt;")
+      .replace(/>/g,"&gt;").replace(/"/g,"&quot;")
+      .replace(/'/g,"&#39;");
+
+    ul.innerHTML = list.map(item => `<li>${escapeHtml(item)}</li>`).join('');
+    box.classList.remove("hidden");
+    box.style.removeProperty("display");
+    return true;
+  }
+
+  async function main(){
+    const slug = new URLSearchParams(location.search).get("s") || "analises-de-aguas";
+
+    // Carrega JSON
+    let payload;
+    try{
+      const res = await fetch(SERVICES_JSON_PATH, { cache: "no-store" });
+      if(!res.ok) throw new Error(`HTTP ${res.status}`);
+      payload = await res.json();
+    }catch(err){
+      setTextOrHide("#service-title", "Erro ao carregar dados");
+      setTextOrHide("#service-subtitle", "Verifique assets/data/services.json.");
+      console.error(err);
+      return;
+    }
+
+    const items = payload.items || {};
+    const data  = items[slug];
+
+    if (!data){
+      setTextOrHide("#service-title", "Serviço não encontrado");
+      setTextOrHide("#service-subtitle", "Verifique o endereço ou escolha outro serviço.");
+      const sidebar = $("#sidebar-services");
+      if (sidebar){
+        (payload.order || Object.keys(items)).forEach(s => {
+          const t = items[s]?.title || s;
+          sidebar.insertAdjacentHTML("beforeend", `<li><a href="servico.html?s=${s}" class="hover:text-biolacqua">${t}</a></li>`);
+        });
+      }
+      return;
+    }
+
+    // Cabeçalho
+    setTextOrHide("#service-title", data.title);
+    setTextOrHide("#bread-service",  data.title);
+    setTextOrHide("#service-subtitle", data.subtitle);
+
+    // Capa
+    const cover = $("#service-cover");
+    if (cover && data.cover && String(data.cover).trim() !== ""){
+      cover.innerHTML = `<img src="${data.cover}" alt="${data.title}" class="w-full h-56 md:h-80 object-cover">`;
+      show(cover);
+    } else {
+      hide(cover);
+    }
+
+    // --- Visão geral
+    setTextOrHide("#service-intro",   data.intro);
+    setTextOrHide("#service-intro-2", data.intro2);
+
+    // --- Metodologia
+    setTextOrHide("#service-method", data.method);
+    if (data.scopeLink){
+      const refs = $("#service-refs");
+      const a    = $("#service-scope-link");
+      if (a) a.href = data.scopeLink;
+      show(refs);
+    } else {
+      hide($("#service-refs"));
+    }
+    setTextOrHide("#service-legal", data.legal);
+
+    // --- Escopo
+    fillListColumn("inorganicos", data.inorganicos);
+    fillListColumn("organicos",   data.organicos);
+    fillListColumn("pesticidas",  data.pesticidas);
+    fillListColumn("outros",      data.outros);
+
+    // --- Microbiologia
+    fillListColumn("micro-list", data.microbiologia);
+
+    // Sidebar dinâmica
+    const order   = payload.order || Object.keys(items);
+    const sidebar = $("#sidebar-services");
+    if (sidebar){
+      sidebar.innerHTML = order.map(s => {
+        const it = items[s];
+        const active = s === slug ? "text-biolacqua font-semibold" : "hover:text-biolacqua";
+        return `<li><a href="servico.html?s=${s}" class="${active}">${it?.title || s}</a></li>`;
+      }).join("");
+    }
+
+    // Prev/Next
+    const idx = order.indexOf(slug);
+    const prevSlug = order[(idx - 1 + order.length) % order.length];
+    const nextSlug = order[(idx + 1) % order.length];
+    const prevA = $("#prev-service"), nextA = $("#next-service");
+    if (prevA){ prevA.href = `servico.html?s=${prevSlug}`; prevA.textContent = "← " + (items[prevSlug]?.title || prevSlug); }
+    if (nextA){ nextA.href = `servico.html?s=${nextSlug}`; nextA.textContent = (items[nextSlug]?.title || nextSlug) + " →"; }
+
+    if (window.feather) feather.replace();
+  }
+
+  if (document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", main);
+  } else {
+    main();
+  }
+
+  // TOC highlight
+  document.addEventListener('DOMContentLoaded', () => {
+    const links = [...document.querySelectorAll('.toc a')];
+    const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const setActive = (id) => links.forEach(a => a.classList.toggle('text-biolacqua', a.getAttribute('href') === '#'+id));
+
+    const obs = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible) setActive(visible.target.id);
+    }, { rootMargin: "-20% 0px -60% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] });
+
+    sections.forEach(s => obs.observe(s));
+  });
+</script>
+
+
+</body>
+</html>
