@@ -1,642 +1,761 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biolacqua - Soluções em Tratamento de Água</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="https://unpkg.com/feather-icons"></script>
-    <link rel="stylesheet" href="assets/css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Biolacqua - Soluções em Tratamento de Água</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    /* Marquee (clientes e certificados) */
+    @keyframes marquee { 0% { transform: translateX(0%) } 100% { transform: translateX(-50%) } }
+    .animate-marquee { display:flex; width:max-content; animation: marquee 40s linear infinite }
+  </style>
 </head>
 <body class="font-sans antialiased text-gray-800">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-md fixed w-full z-10">
-        <div class="container mx-auto px-6 py-3">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center">
-                    <img src="assets/images/logo-biolacqua.png" alt="Biolacqua Logo" class="h-12">
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="text-biolacqua hover:text-biolacqua transition-all">Início</a>
-                    <a href="#about" class="text-gray-600 hover:text-biolacqua transition-all">Sobre</a>
-                    <a href="#services" class="text-gray-600 hover:text-biolacqua transition-all">Serviços</a>
-                    <a href="#contact" class="text-gray-600 hover:text-biolacqua transition-all">Contato</a>
-                </div>
-                <button class="md:hidden focus:outline-none" id="menu-toggle">
-                    <i data-feather="menu"></i>
-                </button>
-            </div>
-            <div class="md:hidden hidden mt-4" id="mobile-menu">
-                <a href="#home" class="block py-2 text-biolacqua">Início</a>
-                <a href="#about" class="block py-2 text-gray-600">Sobre</a>
-                <a href="#services" class="block py-2 text-gray-600">Serviços</a>
-                <a href="#products" class="block py-2 text-gray-600">Produtos</a>
-                <a href="#contact" class="block py-2 text-gray-600">Contato</a>
-            </div>
+  <!-- Navigation -->
+  <nav class="bg-white shadow-md fixed w-full z-10">
+    <div class="container mx-auto px-6 py-3">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center">
+          <img src="assets/images/logo-biolacqua.png" alt="Biolacqua Logo" class="h-12">
         </div>
-    </nav>
+        <div class="hidden md:flex space-x-8">
+          <a href="#home" class="text-biolacqua hover:text-biolacqua transition-all">Início</a>
+          <a href="#about" class="text-gray-600 hover:text-biolacqua transition-all">Sobre</a>
+          <a href="#services" class="text-gray-600 hover:text-biolacqua transition-all">Serviços</a>
+          <a href="#contact" class="text-gray-600 hover:text-biolacqua transition-all">Contato</a>
+        </div>
+        <button class="md:hidden focus:outline-none" id="menu-toggle" aria-label="Abrir menu">
+          <i data-feather="menu"></i>
+        </button>
+      </div>
+      <div class="md:hidden hidden mt-4" id="mobile-menu">
+        <a href="#home" class="block py-2 text-biolacqua">Início</a>
+        <a href="#about" class="block py-2 text-gray-600">Sobre</a>
+        <a href="#services" class="block py-2 text-gray-600">Serviços</a>
+        <a href="#products" class="block py-2 text-gray-600">Produtos</a>
+        <a href="#contact" class="block py-2 text-gray-600">Contato</a>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-gradient pt-32 pb-20 text-white">
-        <div class="container h-[60vh] mx-auto px-6 flex items-center">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
-                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Soluções em Tratamento de Água</h1>
-                    <p class="text-xl mb-8">Tecnologia e qualidade para garantir água pura e segura para sua empresa ou residência.</p>
-                    <a href="#contact" class="bg-white text-biolacqua px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all">Fale Conosco</a>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Hero Section com carrossel de fundo -->
+  <section id="home" class="relative pt-32 pb-20 text-white overflow-hidden">
+    <!-- Slides (fundo) -->
+    <div class="absolute inset-0 z-0">
+      <div class="slides absolute inset-0"></div>
+      <div class="absolute inset-0 pointer-events-none"></div>
+      <div class="absolute inset-0 pointer-events-none"></div>
+    </div>
 
-    <!-- About Section -->
-    <section id="about" class="py-12 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl font-bold text-biolacqua mb-4">Sobre a Biolacqua</h2>
-                <div class="w-20 h-1 bg-biolacqua mx-auto"></div>
-            </div>
-            <div class="flex flex-col xl:flex-row items-center">
-                <div class="xl:w-1/2 mb-10 xl:mb-0" data-aos="fade-right">
-                    <img src="assets/images/frascos.png" alt="Equipe Biolacqua" class="rounded-lg w-full h-full object-cover">
-                </div>
-                <div class="xl:w-1/2 xl:pl-12" data-aos="fade-left">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">O BIOLACQUA</h3>
-                    <p class="text-gray-600 mb-6">Laboratório de Análises de Água e Efluentes Ltda, atua há mais de quinze anos no mercado nacional sendo reconhecido pela rapidez e confiabilidade dos serviços prestados, em que procura sempre atingir e superar as expectativas e a satisfação de seus clientes. Com uma equipe técnica formada por profissionais qualificados e capacitados busca a qualidade em todos os processos.</p>
-                    <p class="text-gray-600 mb-6">Na busca da melhoria contínua o Laboratório Biolacqua investe em novas tecnologias e treinamentos, para garantir e melhorar a qualidade de seus serviços. Possui sua própria frota de veículos para a realização de coletas. E equipamentos para análises como: ICP-OES e Cromatografo com detector espectrômetro de massa (GCMS).
-                    <p class="text-gray-600 mb-6">Nossos técnicos em coletas seguem os procedimentos metodológicos conforme CETESB e Standard Methods for the Examination of Water and Wastewater. Fornecemos kits e orientações para os clientes que quiserem realizar suas próprias coletas.</p>
-                    <p class="text-gray-600 mb-6">Com experiência na área de análises, o Biolacqua presta serviços às Empresas, Hospitais, Escolas, Órgãos Públicos, Indústrias, Condomínios e à Comunidade em geral, atendendo as diversas legislações e as necessidades de cada cliente. Também realiza outorga de Poços artesianos e todo o controle da qualidade da água.</p>
-                    <p class="text-gray-600 mb-6">Para mais informações acesse nossos serviços, Faça um orçamento conosco, ou tire suas dúvidas, através do link abaixo ou pelo nosso e mail biolacqua@bioalcqua.com.br.</p>
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Nossos Valores</h3>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <i data-feather="check-circle" class="text-green-500 mr-2"></i>
-                            <span class="text-gray-600">Compromisso com a qualidade</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i data-feather="check-circle" class="text-green-500 mr-2"></i>
-                            <span class="text-gray-600">Inovação tecnológica</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i data-feather="check-circle" class="text-green-500 mr-2"></i>
-                            <span class="text-gray-600">Sustentabilidade ambiental</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i data-feather="check-circle" class="text-green-500 mr-2"></i>
-                            <span class="text-gray-600">Atendimento personalizado</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+    <!-- Conteúdo -->
+    <div class="container h-[60vh] mx-auto px-6 flex items-center relative z-10">
+      <div class="flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+          <h1 class="text-biolacqua text-4xl md:text-5xl font-bold mb-6">Soluções em Tratamento de Água</h1>
+          <p class="text-biolacqua text-xl mb-8">Tecnologia e qualidade para garantir água pura e segura para sua empresa ou residência.</p>
+          <a href="#contact" class="bg-white text-biolacqua px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all">Fale Conosco</a>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <!-- Clients Section -->
-    <section id="clients" class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl font-bold text-biolacqua mb-4">Quem Atendemos</h2>
-                <div class="w-20 h-1 bg-biolacqua mx-auto"></div>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8" data-even-cards="true">
-                <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-biolacqua mb-4">
-                        <i data-feather="briefcase" class="w-10 h-10"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Empresas</h3>
-                    <p class="text-gray-600">Soluções sob medida para demandas corporativas e operacionais.</p>
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all" data-aos="fade-up" data-aos-delay="150">
-                    <div class="text-biolacqua mb-4">
-                        <i data-feather="heart" class="w-10 h-10"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Hospitais</h3>
-                    <p class="text-gray-600">Atendimento alinhado a requisitos sanitários e de segurança.</p>
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-biolacqua mb-4">
-                        <i data-feather="book" class="w-10 h-10"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Escolas</h3>
-                    <p class="text-gray-600">Monitoramento e qualidade para ambientes de aprendizado.</p>
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all" data-aos="fade-up" data-aos-delay="250">
-                    <div class="text-biolacqua mb-4">
-                        <i data-feather="shield" class="w-10 h-10"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Órgãos Públicos</h3>
-                    <p class="text-gray-600">Conformidade técnica e regulatória para o setor público.</p>
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all" data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-biolacqua mb-4">
-                        <i data-feather="cpu" class="w-10 h-10"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Indústrias</h3>
-                    <p class="text-gray-600">Suporte a processos, reuso e atendimento a normas.</p>
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all" data-aos="fade-up" data-aos-delay="350">
-                    <div class="text-biolacqua mb-4">
-                        <i data-feather="home" class="w-10 h-10"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Condomínios</h3>
-                    <p class="text-gray-600">Água segura para uso coletivo e rotina condominial.</p>
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all md:col-span-3" data-aos="fade-up" data-aos-delay="400">
-                    <div class="text-biolacqua mb-4">
-                        <i data-feather="users" class="w-10 h-10"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Comunidade em geral</h3>
-                    <p class="text-gray-600">Atendimento amplo com foco em saúde, segurança e bem-estar.</p>
-                </div>
-            </div>
+    <!-- Dots -->
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex gap-2" id="hero-dots" aria-label="Navegação do carrossel"></div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-12 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-3xl font-bold text-biolacqua mb-4">Sobre a Biolacqua</h2>
+        <div class="w-20 h-1 bg-biolacqua mx-auto"></div>
+      </div>
+      <div class="flex flex-col xl:flex-row items-center">
+        <div class="xl:w-1/2 mb-10 xl:mb-0" data-aos="fade-right">
+          <img src="assets/images/frascos.png" alt="Equipe Biolacqua" class="rounded-lg w-full h-full object-cover">
         </div>
-    </section>
-    
-        <!-- Clients Section -->
-    <section class="py-20 bg-gray-50">
+        <div class="xl:w-1/2 xl:pl-12" data-aos="fade-left">
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4">O BIOLACQUA</h3>
+          <p class="text-gray-600 mb-6">Há mais de quinze anos no mercado, o Biolacqua é reconhecido pela rapidez e confiabilidade. Com equipe técnica qualificada, investe continuamente em tecnologias e treinamentos para garantir a qualidade dos serviços. Possui frota própria para coletas e equipamentos como ICP-OES e cromatógrafo com detector por espectrometria de massas (GC-MS).</p>
+          <p class="text-gray-600 mb-6">Nossos técnicos seguem os procedimentos CETESB e Standard Methods. Fornecemos kits e orientações para clientes que preferem realizar suas próprias coletas.</p>
+          <p class="text-gray-600 mb-6">Atendemos empresas, hospitais, escolas, órgãos públicos, indústrias, condomínios e a comunidade, de acordo com a legislação vigente. Também realizamos outorga de poços artesianos e o controle da qualidade da água.</p>
+          <p class="text-gray-600 mb-6">
+            Para mais informações, acesse nossos serviços, solicite um orçamento ou tire dúvidas pelo e-mail
+            <a href="mailto:biolacqua@bioalcqua.com.br?subject=Or%C3%A7amento%20Biolacqua&body=Ol%C3%A1%20Biolacqua,%20gostaria%20de%20um%20or%C3%A7amento%20para%20..."
+               class="text-biolacqua hover:underline">biolacqua@bioalcqua.com.br</a>.
+          </p>
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4">Nossos Valores</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start"><i data-feather="check-circle" class="text-biolacqua mr-2"></i><span class="text-gray-600">Compromisso com a qualidade</span></li>
+            <li class="flex items-start"><i data-feather="check-circle" class="text-biolacqua mr-2"></i><span class="text-gray-600">Inovação tecnológica</span></li>
+            <li class="flex items-start"><i data-feather="check-circle" class="text-biolacqua mr-2"></i><span class="text-gray-600">Sustentabilidade ambiental</span></li>
+            <li class="flex items-start"><i data-feather="check-circle" class="text-biolacqua mr-2"></i><span class="text-gray-600">Atendimento personalizado</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quem Atendemos / Segmentos -->
+  <section id="servicos" class="py-20">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-3xl font-bold text-biolacqua mb-4">Quem Atendemos</h2>
+        <div class="w-20 h-1 bg-biolacqua mx-auto"></div>
+        <p class="mt-4 text-slate-600 max-w-2xl mx-auto">
+          Atendemos organizações públicas e privadas em diferentes setores, com soluções de análises de água,
+          efluentes, ar e suporte regulatório.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" data-even-cards="true">
+        <!-- Empresas -->
+        <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all hover:shadow-lg" data-aos="fade-up" data-aos-delay="50">
+          <div class="text-biolacqua mb-3"><i data-feather="briefcase" class="w-8 h-8"></i></div>
+          <h3 class="text-lg font-semibold mb-1">Empresas</h3>
+          <p class="text-gray-600 text-sm">Soluções sob medida para rotinas operacionais e compliance.</p>
+        </div>
+
+        <!-- Indústrias -->
+        <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all hover:shadow-lg" data-aos="fade-up" data-aos-delay="75">
+          <div class="text-biolacqua mb-3"><i data-feather="cpu" class="w-8 h-8"></i></div>
+          <h3 class="text-lg font-semibold mb-1">Indústrias</h3>
+          <p class="text-gray-600 text-sm">Monitoramento de processos, reuso e atendimento a normas.</p>
+        </div>
+
+        <!-- Saneamento / Concessionárias -->
+        <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all hover:shadow-lg" data-aos="fade-up" data-aos-delay="100">
+          <div class="text-biolacqua mb-3"><i data-feather="droplet" class="w-8 h-8"></i></div>
+          <h3 class="text-lg font-semibold mb-1">Saneamento / Concessionárias</h3>
+          <p class="text-gray-600 text-sm">ETA/ETE, qualidade da água e efluentes, reuso e relatórios.</p>
+        </div>
+
+        <!-- Agronegócio -->
+        <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all hover:shadow-lg" data-aos="fade-up" data-aos-delay="125">
+          <div class="text-biolacqua mb-3"><i data-feather="feather" class="w-8 h-8"></i></div>
+          <h3 class="text-lg font-semibold mb-1">Agronegócio</h3>
+          <p class="text-gray-600 text-sm">Irrigação, poços, pulverização e monitoramento de fontes.</p>
+        </div>
+
+        <!-- Hospitais e Clínicas -->
+        <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all hover:shadow-lg" data-aos="fade-up" data-aos-delay="150">
+          <div class="text-biolacqua mb-3"><i data-feather="heart" class="w-8 h-8"></i></div>
+          <h3 class="text-lg font-semibold mb-1">Hospitais e Clínicas</h3>
+          <p class="text-gray-600 text-sm">Requisitos sanitários, água de consumo, ar interno.</p>
+        </div>
+
+        <!-- Laboratórios e Consultorias -->
+        <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all hover:shadow-lg" data-aos="fade-up" data-aos-delay="175">
+          <div class="text-biolacqua mb-3"><i data-feather="layers" class="w-8 h-8"></i></div>
+          <h3 class="text-lg font-semibold mb-1">Laboratórios & Consultorias</h3>
+          <p class="text-gray-600 text-sm">Parcerias técnicas, coletas e cadeia de custódia.</p>
+        </div>
+
+        <!-- Construção Civil -->
+        <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all hover:shadow-lg" data-aos="fade-up" data-aos-delay="200">
+          <div class="text-biolacqua mb-3"><i data-feather="tool" class="w-8 h-8"></i></div>
+          <h3 class="text-lg font-semibold mb-1">Construção Civil</h3>
+          <p class="text-gray-600 text-sm">CADRI, caracterização de resíduos e águas de obra.</p>
+        </div>
+
+        <!-- Hotéis & Resorts -->
+        <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all hover:shadow-lg" data-aos="fade-up" data-aos-delay="225">
+          <div class="text-biolacqua mb-3"><i data-feather="briefcase" class="w-8 h-8"></i></div>
+          <h3 class="text-lg font-semibold mb-1">Hotéis & Resorts</h3>
+          <p class="text-gray-600 text-sm">Piscinas, poços e reuso com foco em bem-estar.</p>
+        </div>
+
+        <!-- Restaurantes & Food Service -->
+        <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all hover:shadow-lg" data-aos="fade-up" data-aos-delay="250">
+          <div class="text-biolacqua mb-3"><i data-feather="coffee" class="w-8 h-8"></i></div>
+          <h3 class="text-lg font-semibold mb-1">Restaurantes & Food Service</h3>
+          <p class="text-gray-600 text-sm">Potabilidade, higienização e conformidade sanitária.</p>
+        </div>
+
+        <!-- Escolas & Universidades -->
+        <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all hover:shadow-lg" data-aos="fade-up" data-aos-delay="275">
+          <div class="text-biolacqua mb-3"><i data-feather="book" class="w-8 h-8"></i></div>
+          <h3 class="text-lg font-semibold mb-1">Escolas & Universidades</h3>
+          <p class="text-gray-600 text-sm">Ambientes seguros, água de consumo e ar interno.</p>
+        </div>
+
+        <!-- Órgãos Públicos -->
+        <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all hover:shadow-lg" data-aos="fade-up" data-aos-delay="300">
+          <div class="text-biolacqua mb-3"><i data-feather="shield" class="w-8 h-8"></i></div>
+          <h3 class="text-lg font-semibold mb-1">Órgãos Públicos</h3>
+          <p class="text-gray-600 text-sm">Conformidade regulatória e ensaios oficiais.</p>
+        </div>
+
+        <!-- Condomínios & Síndicos -->
+        <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all hover:shadow-lg" data-aos="fade-up" data-aos-delay="325">
+          <div class="text-biolacqua mb-3"><i data-feather="home" class="w-8 h-8"></i></div>
+          <h3 class="text-lg font-semibold mb-1">Condomínios & Síndicos</h3>
+          <p class="text-gray-600 text-sm">Água segura para uso coletivo e rotina predial.</p>
+        </div>
+
+        <!-- Clubes, Academias e Spas -->
+        <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all hover:shadow-lg" data-aos="fade-up" data-aos-delay="350">
+          <div class="text-biolacqua mb-3"><i data-feather="activity" class="w-8 h-8"></i></div>
+          <h3 class="text-lg font-semibold mb-1">Clubes, Academias & Spas</h3>
+          <p class="text-gray-600 text-sm">Piscinas, qualidade do ar e bem-estar.</p>
+        </div>
+
+        <!-- Poços / Perfuração -->
+        <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all hover:shadow-lg" data-aos="fade-up" data-aos-delay="375">
+          <div class="text-biolacqua mb-3"><i data-feather="map-pin" class="w-8 h-8"></i></div>
+          <h3 class="text-lg font-semibold mb-1">Poços / Perfuração</h3>
+          <p class="text-gray-600 text-sm">Regularização, amostragem e controle de poços.</p>
+        </div>
+
+        <!-- Shopping & Varejo -->
+        <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all hover:shadow-lg" data-aos="fade-up" data-aos-delay="400">
+          <div class="text-biolacqua mb-3"><i data-feather="shopping-bag" class="w-8 h-8"></i></div>
+          <h3 class="text-lg font-semibold mb-1">Shopping Centers & Varejo</h3>
+          <p class="text-gray-600 text-sm">Potabilidade e qualidade de ambientes internos.</p>
+        </div>
+
+        <!-- Data Centers / Ambientes Críticos -->
+        <div class="bg-white rounded-lg shadow-md p-6 service-card transition-all hover:shadow-lg" data-aos="fade-up" data-aos-delay="425">
+          <div class="text-biolacqua mb-3"><i data-feather="server" class="w-8 h-8"></i></div>
+          <h3 class="text-lg font-semibold mb-1">Data Centers & Ambientes Críticos</h3>
+          <p class="text-gray-600 text-sm">Qualidade do ar e condições ambientais controladas.</p>
+        </div>
+
+      </div>
+
+      <!-- CTA curta -->
+      <div class="mt-10 text-center">
+        <a href="/#contact"
+           class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-biolacqua text-white font-semibold hover:opacity-95 transition">
+          <i data-feather="mail" class="w-5 h-5"></i>
+          Fale com especialistas
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clients Section -->
+  <section class="py-20 bg-gray-50">
     <div class="container mx-auto px-0">
-        <div class="text-center mb-12" data-aos="fade-up">
+      <div class="text-center mb-12" data-aos="fade-up">
         <h2 class="text-3xl font-bold text-biolacqua mb-4">Principais Clientes</h2>
         <div class="w-20 h-1 bg-biolacqua mx-auto"></div>
-        </div>
+      </div>
 
-        <!-- Wrapper do carrossel -->
-        <div class="overflow-hidden relative">
-        <!-- Faixa de logos -->
+      <div class="overflow-hidden relative">
         <div class="flex items-center space-x-12 animate-marquee">
-            <!-- Repita as logos aqui -->
-            <img src="/assets/clientes/bradesco.png" alt="Banco Bradesco" class="h-16 object-contain">
-            <img src="/assets/clientes/jurupinga.png" alt="Jurupinga Dinalle" class="h-16 object-contain">
-            <img src="/assets/clientes/wacker.png" alt="Wacker Química" class="h-16 object-contain">
-            <img src="/assets/clientes/igr.png" alt="Indústria Gráfica Brasileira" class="h-16 object-contain">
-            <img src="/assets/clientes/messianica.png" alt="Igreja Messiânica" class="h-16 object-contain">
-            <img src="/assets/clientes/gerresheimer.png" alt="Gerresheimer" class="h-16 object-contain">
-            <img src="/assets/clientes/aacd.png" alt="AACD" class="h-16 object-contain">
-            <img src="/assets/clientes/sesc.png" alt="SESC" class="h-16 object-contain">
-            <img src="/assets/clientes/accor.png" alt="Hotelaria Accor" class="h-16 object-contain">
-            <img src="/assets/clientes/beneficencia.png" alt="Beneficência Portuguesa" class="h-16 object-contain">
-            <!-- ...adicione todas as outras... -->
+          <img src="/assets/clientes/bradesco.png" alt="Banco Bradesco" class="h-16 object-contain">
+          <img src="/assets/clientes/jurupinga.png" alt="Jurupinga Dinalle" class="h-16 object-contain">
+          <img src="/assets/clientes/wacker.png" alt="Wacker Química" class="h-16 object-contain">
+          <img src="/assets/clientes/igr.png" alt="Indústria Gráfica Brasileira" class="h-16 object-contain">
+          <img src="/assets/clientes/messianica.png" alt="Igreja Messiânica" class="h-16 object-contain">
+          <img src="/assets/clientes/gerresheimer.png" alt="Gerresheimer" class="h-16 object-contain">
+          <img src="/assets/clientes/aacd.png" alt="AACD" class="h-16 object-contain">
+          <img src="/assets/clientes/sesc.png" alt="SESC" class="h-16 object-contain">
+          <img src="/assets/clientes/accor.png" alt="Hotelaria Accor" class="h-16 object-contain">
+          <img src="/assets/clientes/beneficencia.png" alt="Beneficência Portuguesa" class="h-16 object-contain">
 
-            <!-- Duplicado para loop infinito -->
-            <img src="/assets/clientes/bradesco.png" alt="Banco Bradesco" class="h-16 object-contain">
-            <img src="/assets/clientes/jurupinga.png" alt="Jurupinga Dinalle" class="h-16 object-contain">
-            <img src="/assets/clientes/wacker.png" alt="Wacker Química" class="h-16 object-contain">
-            <img src="/assets/clientes/igr.png" alt="Indústria Gráfica Brasileira" class="h-16 object-contain">
-            <img src="/assets/clientes/messianica.png" alt="Igreja Messiânica" class="h-16 object-contain">
-            <img src="/assets/clientes/gerresheimer.png" alt="Gerresheimer" class="h-16 object-contain">
-            <img src="/assets/clientes/aacd.png" alt="AACD" class="h-16 object-contain">
-            <img src="/assets/clientes/sesc.png" alt="SESC" class="h-16 object-contain">
-            <img src="/assets/clientes/accor.png" alt="Hotelaria Accor" class="h-16 object-contain">
-            <img src="/assets/clientes/beneficencia.png" alt="Beneficência Portuguesa" class="h-16 object-contain">
+          <!-- Duplicados para loop -->
+          <img src="/assets/clientes/bradesco.png" alt="Banco Bradesco" class="h-16 object-contain">
+          <img src="/assets/clientes/jurupinga.png" alt="Jurupinga Dinalle" class="h-16 object-contain">
+          <img src="/assets/clientes/wacker.png" alt="Wacker Química" class="h-16 object-contain">
+          <img src="/assets/clientes/igr.png" alt="Indústria Gráfica Brasileira" class="h-16 object-contain">
+          <img src="/assets/clientes/messianica.png" alt="Igreja Messiânica" class="h-16 object-contain">
+          <img src="/assets/clientes/gerresheimer.png" alt="Gerresheimer" class="h-16 object-contain">
+          <img src="/assets/clientes/aacd.png" alt="AACD" class="h-16 object-contain">
+          <img src="/assets/clientes/sesc.png" alt="SESC" class="h-16 object-contain">
+          <img src="/assets/clientes/accor.png" alt="Hotelaria Accor" class="h-16 object-contain">
+          <img src="/assets/clientes/beneficencia.png" alt="Beneficência Portuguesa" class="h-16 object-contain">
         </div>
-        </div>
+      </div>
     </div>
-    </section>
+  </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-20">
+  <!-- Services Section -->
+  <section id="services" class="py-20">
     <div class="container mx-auto px-6">
-        <div class="text-center mb-16" data-aos="fade-up">
+      <div class="text-center mb-16" data-aos="fade-up">
         <h2 class="text-3xl font-bold text-biolacqua mb-4">Nossos Serviços</h2>
         <div class="w-20 h-1 bg-biolacqua mx-auto"></div>
-        </div>
+      </div>
 
-        <div class="grid md:grid-cols-3 gap-8" data-even-cards="true">
-        
+      <div class="grid md:grid-cols-3 gap-8" data-even-cards="true">
         <a href="servico.html?s=analises-de-aguas" class="bg-white rounded-lg shadow-md p-6 service-card transition-all hover:shadow-lg" data-aos="fade-up" data-aos-delay="100">
-            <div class="text-biolacqua mb-4">
-            <i data-feather="droplet" class="w-10 h-10"></i>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">Análises de Águas</h3>
-            <p class="text-gray-600">Potável, irrigação, pulverização, subterrânea, superficial e residuais.</p>
+          <div class="text-biolacqua mb-4"><i data-feather="droplet" class="w-10 h-10"></i></div>
+          <h3 class="text-xl font-semibold mb-3">Análises de Águas</h3>
+          <p class="text-gray-600">Potável, irrigação, pulverização, subterrânea, superficial e residuais.</p>
         </a>
 
         <a href="servico.html?s=balneabilidade" class="bg-white rounded-lg shadow-md p-6 service-card transition-all hover:shadow-lg" data-aos="fade-up" data-aos-delay="200">
-            <div class="text-biolacqua mb-4">
-            <i data-feather="life-buoy" class="w-10 h-10"></i>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">Balneabilidade e Recreação</h3>
-            <p class="text-gray-600">Ensaios para avaliação de segurança e qualidade para banho.</p>
+          <div class="text-biolacqua mb-4"><i data-feather="life-buoy" class="w-10 h-10"></i></div>
+          <h3 class="text-xl font-semibold mb-3">Balneabilidade e Recreação</h3>
+          <p class="text-gray-600">Ensaios para avaliação de segurança e qualidade para banho.</p>
         </a>
 
         <a href="servico.html?s=efluentes-residuos" class="bg-white rounded-lg shadow-md p-6 service-card transition-all hover:shadow-lg" data-aos="fade-up" data-aos-delay="300">
-            <div class="text-biolacqua mb-4">
-            <i data-feather="trash-2" class="w-10 h-10"></i>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">Efluentes e Resíduos (CADRI)</h3>
-            <p class="text-gray-600">Análises de efluentes e caracterização de resíduos com suporte CADRI.</p>
+          <div class="text-biolacqua mb-4"><i data-feather="trash-2" class="w-10 h-10"></i></div>
+          <h3 class="text-xl font-semibold mb-3">Efluentes e Resíduos (CADRI)</h3>
+          <p class="text-gray-600">Análises de efluentes e caracterização de resíduos com suporte CADRI.</p>
         </a>
 
         <a href="servico.html?s=pocos" class="bg-white rounded-lg shadow-md p-6 service-card transition-all hover:shadow-lg" data-aos="fade-up" data-aos-delay="100">
-            <div class="text-biolacqua mb-4">
-            <i data-feather="map-pin" class="w-10 h-10"></i>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">Poços: Regularização e Controle</h3>
-            <p class="text-gray-600">Regularização, manutenção e controle de poços de água.</p>
+          <div class="text-biolacqua mb-4"><i data-feather="map-pin" class="w-10 h-10"></i></div>
+          <h3 class="text-xl font-semibold mb-3">Poços: Regularização e Controle</h3>
+          <p class="text-gray-600">Regularização, manutenção e controle de poços de água.</p>
         </a>
 
         <a href="servico.html?s=eta-ete-reuso" class="bg-white rounded-lg shadow-md p-6 service-card transition-all hover:shadow-lg" data-aos="fade-up" data-aos-delay="200">
-            <div class="text-biolacqua mb-4">
-            <i data-feather="refresh-cw" class="w-10 h-10"></i>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">ETA’s / ETE’s e Reuso</h3>
-            <p class="text-gray-600">Estações de Tratamento de Água e Efluentes, com soluções de reuso.</p>
+          <div class="text-biolacqua mb-4"><i data-feather="refresh-cw" class="w-10 h-10"></i></div>
+          <h3 class="text-xl font-semibold mb-3">ETA’s / ETE’s e Reuso</h3>
+          <p class="text-gray-600">Estações de Tratamento de Água e Efluentes, com soluções de reuso.</p>
         </a>
 
         <a href="servico.html?s=tratamento-aguas" class="bg-white rounded-lg shadow-md p-6 service-card transition-all hover:shadow-lg" data-aos="fade-up" data-aos-delay="300">
-            <div class="text-biolacqua mb-4">
-            <i data-feather="filter" class="w-10 h-10"></i>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">Tratamento: Piscina, Poço e Efluentes</h3>
-            <p class="text-gray-600">Tratamentos especializados conforme a necessidade de cada aplicação.</p>
+          <div class="text-biolacqua mb-4"><i data-feather="filter" class="w-10 h-10"></i></div>
+          <h3 class="text-xl font-semibold mb-3">Tratamento: Piscina, Poço e Efluentes</h3>
+          <p class="text-gray-600">Tratamentos especializados conforme a necessidade de cada aplicação.</p>
         </a>
 
         <a href="servico.html?s=analise-de-ar" class="bg-white rounded-lg shadow-md p-6 service-card transition-all hover:shadow-lg" data-aos="fade-up" data-aos-delay="300">
-            <div class="text-biolacqua mb-4">
-            <i data-feather="wind" class="w-10 h-10"></i>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">Análise de Ar em Ambientes</h3>
-            <p class="text-gray-600">Avaliação da qualidade do ar em ambientes internos.</p>
+          <div class="text-biolacqua mb-4"><i data-feather="wind" class="w-10 h-10"></i></div>
+          <h3 class="text-xl font-semibold mb-3">Análise de Ar em Ambientes</h3>
+          <p class="text-gray-600">Avaliação da qualidade do ar em ambientes internos.</p>
         </a>
-
-        </div>
+      </div>
     </div>
-    </section>
+  </section>
 
-
-    <!-- Certificados Section -->
-    <section class="py-20 bg-gradient-to-b from-white to-gray-50">
+  <!-- Certificados Section -->
+  <section class="py-20 bg-gradient-to-b from-white to-gray-50">
     <div class="container mx-auto px-6">
-        <!-- Título -->
-        <div class="text-center mb-12" data-aos="fade-up">
+      <div class="text-center mb-12" data-aos="fade-up">
         <h2 class="text-2xl md:text-4xl font-bold text-biolacqua mb-4 tracking-wide">
-            Nossos certificados atestam a qualidade e a conformidade dos serviços prestados.
+          Nossos certificados atestam a qualidade e a conformidade dos serviços prestados.
         </h2>
         <div class="w-24 h-1 bg-biolacqua mx-auto rounded-full"></div>
-        </div>
+      </div>
 
-        <!-- Carrossel -->
-        <div class="overflow-hidden relative">
+      <div class="overflow-hidden relative">
         <div class="flex items-center space-x-12 animate-marquee">
-            <!-- Logos -->
-            <img src="/assets/certificados/iso.png" alt="Certificação ISO"
-                class="h-20 md:h-24 object-contain">
-            <img src="/assets/certificados/pf.png" alt="Polícia Federal"
-                class="h-20 md:h-24 object-contain">
-            <img src="/assets/certificados/ibama.png" alt="IBAMA"
-                class="h-20 md:h-24 object-contain">
-            <img src="/assets/certificados/crq.png" alt="Conselho Regional de Química (CRQ)"
-                class="h-20 md:h-24 object-contain">
-            <img src="/assets/certificados/cetesb.png" alt="CETESB"
-                class="h-20 md:h-24 object-contain">
-            <img src="/assets/certificados/bombeiro.png" alt="Corpo de Bombeiros"
-                class="h-20 md:h-24 object-contain">
-            <img src="/assets/certificados/exercito.png" alt="Exército Brasileiro"
-                class="h-20 md:h-24 object-contain">
-            <img src="/assets/certificados/policiacivilsp.png" alt="Polícia Civil de São Paulo"
-                class="h-20 md:h-24 object-contain">
-            <img src="/assets/certificados/anvisa.png" alt="ANVISA"
-                class="h-20 md:h-24 object-contain">
-            <img src="/assets/certificados/reblas.png" alt="REBLAS - Rede Brasileira de Laboratórios Analíticos em Saúde"
-                class="h-20 md:h-24 object-contain">
+          <img src="/assets/certificados/iso.png" alt="Certificação ISO" class="h-20 md:h-24 object-contain">
+          <img src="/assets/certificados/pf.png" alt="Polícia Federal" class="h-20 md:h-24 object-contain">
+          <img src="/assets/certificados/ibama.png" alt="IBAMA" class="h-20 md:h-24 object-contain">
+          <img src="/assets/certificados/crq.png" alt="Conselho Regional de Química (CRQ)" class="h-20 md:h-24 object-contain">
+          <img src="/assets/certificados/cetesb.png" alt="CETESB" class="h-20 md:h-24 object-contain">
+          <img src="/assets/certificados/bombeiro.png" alt="Corpo de Bombeiros" class="h-20 md:h-24 object-contain">
+          <img src="/assets/certificados/exercito.png" alt="Exército Brasileiro" class="h-20 md:h-24 object-contain">
+          <img src="/assets/certificados/policiacivilsp.png" alt="Polícia Civil de São Paulo" class="h-20 md:h-24 object-contain">
+          <img src="/assets/certificados/anvisa.png" alt="ANVISA" class="h-20 md:h-24 object-contain">
+          <img src="/assets/certificados/reblas.png" alt="REBLAS - Rede Brasileira de Laboratórios Analíticos em Saúde" class="h-20 md:h-24 object-contain">
 
-            <!-- Duplicado para o loop infinito -->
-            <img src="/assets/certificados/iso.png" alt="Certificação ISO" class="h-20 md:h-24 object-contain">
-            <img src="/assets/certificados/pf.png" alt="Polícia Federal" class="h-20 md:h-24 object-contain">
-            <img src="/assets/certificados/ibama.png" alt="IBAMA" class="h-20 md:h-24 object-contain">
-            <img src="/assets/certificados/crq.png" alt="Conselho Regional de Química (CRQ)" class="h-20 md:h-24 object-contain">
-            <img src="/assets/certificados/cetesb.png" alt="CETESB" class="h-20 md:h-24 object-contain">
-            <img src="/assets/certificados/bombeiro.png" alt="Corpo de Bombeiros" class="h-20 md:h-24 object-contain">
-            <img src="/assets/certificados/exercito.png" alt="Exército Brasileiro" class="h-20 md:h-24 object-contain">
-            <img src="/assets/certificados/policiacivilsp.png" alt="Polícia Civil de São Paulo" class="h-20 md:h-24 object-contain">
-            <img src="/assets/certificados/anvisa.png" alt="ANVISA" class="h-20 md:h-24 object-contain">
-            <img src="/assets/certificados/reblas.png" alt="REBLAS" class="h-20 md:h-24 object-contain">
+          <!-- duplicados -->
+          <img src="/assets/certificados/iso.png" alt="Certificação ISO" class="h-20 md:h-24 object-contain">
+          <img src="/assets/certificados/pf.png" alt="Polícia Federal" class="h-20 md:h-24 object-contain">
+          <img src="/assets/certificados/ibama.png" alt="IBAMA" class="h-20 md:h-24 object-contain">
+          <img src="/assets/certificados/crq.png" alt="Conselho Regional de Química (CRQ)" class="h-20 md:h-24 object-contain">
+          <img src="/assets/certificados/cetesb.png" alt="CETESB" class="h-20 md:h-24 object-contain">
+          <img src="/assets/certificados/bombeiro.png" alt="Corpo de Bombeiros" class="h-20 md:h-24 object-contain">
+          <img src="/assets/certificados/exercito.png" alt="Exército Brasileiro" class="h-20 md:h-24 object-contain">
+          <img src="/assets/certificados/policiacivilsp.png" alt="Polícia Civil de São Paulo" class="h-20 md:h-24 object-contain">
+          <img src="/assets/certificados/anvisa.png" alt="ANVISA" class="h-20 md:h-24 object-contain">
+          <img src="/assets/certificados/reblas.png" alt="REBLAS" class="h-20 md:h-24 object-contain">
         </div>
-        </div>
+      </div>
     </div>
-    </section>
+  </section>
 
-    <style>
-    @keyframes marquee {
-        0%   { transform: translateX(0%); }
-        100% { transform: translateX(-50%); }
+  <!-- Quality Section -->
+  <section id="quality" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-3xl font-bold text-biolacqua mb-4">Gestão da Qualidade</h2>
+        <div class="w-20 h-1 bg-biolacqua mx-auto"></div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8 items-start">
+        <div data-aos="fade-right">
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4">Sistema de Gestão Integrado (SGI)</h3>
+          <p class="text-gray-600">A Biolacqua opera com um Sistema de Gestão Integrado (SGI) baseado em normas da ISO 17025, garantindo qualidade e rastreabilidade em seus processos laboratoriais.</p>
+        </div>
+        <div data-aos="fade-left">
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4">Acreditações e INMETRO</h3>
+          <p class="text-gray-600">Em janeiro de 2020, a Biolacqua ampliou significativamente seu escopo de acreditação pelo INMETRO, atingindo a marca de 150 ensaios acreditados.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-3xl font-bold text-biolacqua mb-4">Entre em Contato</h2>
+        <div class="w-20 h-1 bg-biolacqua mx-auto"></div>
+      </div>
+      <div class="flex flex-col xl:flex-row">
+        <div class="xl:w-1/2 mb-10 xl:mb-0 xl:pr-8" data-aos="fade-right">
+          <h3 class="text-2xl font-semibold mb-6">Informações de Contato</h3>
+          <div class="space-y-4">
+            <div class="flex items-start xl:items-center">
+              <i data-feather="map-pin" class="text-biolacqua mr-4 mt-1"></i>
+              <div>
+                <h4 class="font-semibold">Endereço</h4>
+                <p class="text-gray-600">Rua José Tabacow, 170 – Tatuapé<br>São Paulo – SP, CEP 03409-020</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <i data-feather="phone" class="text-biolacqua mr-4 mt-1"></i>
+              <div>
+                <h4 class="font-semibold">Telefone</h4>
+                <p class="text-gray-600">(11) 2651-6733 / 2651-6830 — Fax: 2652-9613</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <i data-feather="mail" class="text-biolacqua mr-4 mt-1"></i>
+              <div>
+                <h4 class="font-semibold">E-mail</h4>
+                <p class="text-gray-600">biolacqua@biolacqua.com.br</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <i data-feather="clock" class="text-biolacqua mr-4 mt-1"></i>
+              <div>
+                <h4 class="font-semibold">Horário de Atendimento</h4>
+                <p class="text-gray-600">Segunda a Sexta: 8h às 18h<br>Sábado: 8h às 12h</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="xl:w-1/2" data-aos="fade-left">
+          <form id="form-orcamento" class="bg-white p-6 rounded-lg shadow-md">
+            <!-- Alternância PF/PJ -->
+            <fieldset class="mb-5">
+              <legend class="sr-only">Tipo de pessoa</legend>
+              <div class="flex items-center space-x-6">
+                <label class="inline-flex items-center space-x-2 cursor-pointer">
+                  <input type="radio" name="tipoPessoa" value="pf" class="text-biolacqua" checked>
+                  <span class="text-gray-800 font-medium">Pessoa Física</span>
+                </label>
+                <label class="inline-flex items-center space-x-2 cursor-pointer">
+                  <input type="radio" name="tipoPessoa" value="pj" class="text-biolacqua">
+                  <span class="text-gray-800 font-medium">Pessoa Jurídica</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <!-- Nome (comum) -->
+            <div class="mb-4">
+              <label class="block text-gray-700 font-medium mb-2">Nome</label>
+              <input name="nome" type="text" required
+                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-biolacqua"
+                     placeholder="Nome">
+            </div>
+
+            <!-- Apenas PJ -->
+            <div class="mb-4 only-pj hidden">
+              <label class="block text-gray-700 font-medium mb-2">Empresa</label>
+              <input name="empresa" type="text"
+                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-biolacqua"
+                     placeholder="Empresa" disabled>
+            </div>
+
+            <div class="mb-4 only-pj hidden">
+              <label class="block text-gray-700 font-medium mb-2">CNPJ</label>
+              <input name="cnpj" type="text" inputmode="numeric" maxlength="18"
+                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-biolacqua"
+                     placeholder="00.000.000/0000-00" disabled>
+            </div>
+
+            <!-- Apenas PF -->
+            <div class="mb-4 only-pf">
+              <label class="block text-gray-700 font-medium mb-2">CPF</label>
+              <input name="cpf" type="text" inputmode="numeric" maxlength="14"
+                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-biolacqua"
+                     placeholder="000.000.000-00">
+            </div>
+
+            <!-- Endereço / Número e complemento -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="mb-4">
+                <label class="block text-gray-700 font-medium mb-2">Endereço</label>
+                <input name="endereco" type="text" required
+                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-biolacqua"
+                       placeholder="Endereço">
+              </div>
+              <div class="mb-4">
+                <label class="block text-gray-700 font-medium mb-2">Número e Complemento</label>
+                <input name="numero_complemento" type="text"
+                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-biolacqua"
+                       placeholder="Número e Complemento">
+              </div>
+            </div>
+
+            <!-- Bairro / CEP / Cidade-UF -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div class="mb-4">
+                <label class="block text-gray-700 font-medium mb-2">Bairro</label>
+                <input name="bairro" type="text"
+                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-biolacqua"
+                       placeholder="Bairro">
+              </div>
+              <div class="mb-4">
+                <label class="block text-gray-700 font-medium mb-2">CEP</label>
+                <input name="cep" type="text" inputmode="numeric" maxlength="9"
+                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-biolacqua"
+                       placeholder="00000-000">
+              </div>
+              <div class="mb-4">
+                <label class="block text-gray-700 font-medium mb-2">Cidade/UF</label>
+                <input name="cidade_uf" type="text"
+                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-biolacqua"
+                       placeholder="Cidade/UF">
+              </div>
+            </div>
+
+            <!-- Telefone / Email -->
+            <div class="mb-4">
+              <label class="block text-gray-700 font-medium mb-2">Telefone</label>
+              <input name="telefone" type="tel"
+                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-biolacqua"
+                     placeholder="(00) 00000-0000">
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-700 font-medium mb-2">E-mail</label>
+              <input name="email" type="email" required
+                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-biolacqua"
+                     placeholder="E-mail">
+            </div>
+
+            <!-- Descrição -->
+            <div class="mb-6">
+              <label class="block text-gray-700 font-medium mb-2">Breve descrição do seu serviço.</label>
+              <textarea name="descricao" rows="4"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-biolacqua"
+                        placeholder="Conte brevemente o que você precisa."></textarea>
+            </div>
+
+            <button type="submit"
+                    class="w-full bg-biolacqua text-white py-3 rounded-lg font-semibold hover:opacity-95 transition-all">
+              Enviar Mensagem
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Biolacqua</h3>
+          <p class="text-gray-400">Soluções em tratamento de água com tecnologia e qualidade desde 2005.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Links Rápidos</h4>
+          <ul class="space-y-2">
+            <li><a href="#home" class="text-gray-400 hover:text-white transition-all">Início</a></li>
+            <li><a href="#about" class="text-gray-400 hover:text-white transition-all">Sobre Nós</a></li>
+            <li><a href="#services" class="text-gray-400 hover:text-white transition-all">Serviços</a></li>
+            <li><a href="#contact" class="text-gray-400 hover:text-white transition-all">Contato</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Serviços</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-all">Tratamento de Água</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-all">Filtração</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-all">Ozonização</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-all">Análise de Água</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-all">Manutenção</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Redes Sociais</h4>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition-all" aria-label="Facebook">
+              <i class="fab fa-facebook w-5 h-5"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-all" aria-label="Instagram">
+              <i class="fab fa-instagram w-5 h-5"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-all" aria-label="LinkedIn">
+              <i class="fab fa-linkedin w-5 h-5"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-all" aria-label="YouTube">
+              <i class="fab fa-youtube w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+        <p>&copy; 2023 Biolacqua. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botão WhatsApp flutuante -->
+  <a href="https://wa.me/551126516733" class="whatsapp-button" target="_blank" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script>
+    // ========= Feather + AOS =========
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.feather) feather.replace();
+      if (window.AOS) AOS.init({ once: true, duration: 700 });
+    });
+
+    // ========= Mobile menu =========
+    document.getElementById('menu-toggle')?.addEventListener('click', () => {
+      const m = document.getElementById('mobile-menu');
+      if (!m) return;
+      m.classList.toggle('hidden');
+    });
+
+    // ========= HERO: carrossel de fundo =========
+    // Ajuste este caminho para a pasta onde estão 1.png, 2.png, 3.png, 4.png
+    const HERO_DIR = 'assets/images/';
+    const HERO_IMAGES = ['1.png', '2.png', '3.png', '4.png'];
+
+    const $ = (s) => document.querySelector(s);
+    const add = (el, cls) => el.classList.add(...cls.split(' ').filter(Boolean));
+    const rm  = (el, cls) => el.classList.remove(...cls.split(' ').filter(Boolean));
+
+    const slidesRoot = $('#home .slides');
+    const dotsRoot   = $('#hero-dots');
+    const slides = [];
+    const dots   = [];
+
+    // preloader
+    HERO_IMAGES.forEach(n => { const i = new Image(); i.src = HERO_DIR + n; });
+
+    HERO_IMAGES.forEach((name, i) => {
+      const slide = document.createElement('div');
+      add(slide, 'absolute inset-0 bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-700 will-change-opacity');
+      slide.style.backgroundImage = `url("${HERO_DIR}${name}")`;
+      slidesRoot.appendChild(slide);
+      slides.push(slide);
+
+      const dot = document.createElement('button');
+      dot.setAttribute('aria-label', `Slide ${i+1}`);
+      add(dot, 'w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white/80 transition');
+      dot.addEventListener('click', () => goTo(i, true));
+      dotsRoot.appendChild(dot);
+      dots.push(dot);
+    });
+
+    let idx = 0;
+    let timer = null;
+    const INTERVAL = 5000;
+
+    function render() {
+      slides.forEach((s, i) => i === idx ? add(s, 'opacity-100') : rm(s, 'opacity-100'));
+      dots.forEach((d, i) => {
+        if (i === idx) {
+          d.style.width = '18px';
+          d.style.borderRadius = '9999px';
+          d.style.backgroundColor = '#508DCA';
+        } else {
+          d.style.width = '10px';
+          d.style.borderRadius = '9999px';
+          d.style.backgroundColor = '#d3d3d3';
+        }
+      });
     }
-    .animate-marquee {
-        display: flex;
-        width: max-content;
-        animation: marquee 40s linear infinite;
-    }
-    </style>
+    function goTo(i, user=false) { idx = (i + slides.length) % slides.length; render(); if (user) restart(); }
+    function next() { goTo(idx + 1); }
+    function start() { if (!timer) timer = setInterval(next, INTERVAL); }
+    function stop()  { if (timer) { clearInterval(timer); timer = null; } }
+    function restart(){ stop(); start(); }
 
-    <!-- Quality Section -->
-    <section id="quality" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl font-bold text-biolacqua mb-4">Gestão da Qualidade</h2>
-                <div class="w-20 h-1 bg-biolacqua mx-auto"></div>
-            </div>
-            <div class="grid md:grid-cols-2 gap-8 items-start">
-                <div data-aos="fade-right">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Sistema de Gestão Integrado (SGI)</h3>
-                    <p class="text-gray-600">A Biolacqua opera com um Sistema de Gestão Integrado (SGI) baseado em normas da ISO 17025, garantindo qualidade e rastreabilidade em seus processos laboratoriais.</p>
-                </div>
-                <div data-aos="fade-left">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Acreditações e INMETRO</h3>
-                    <p class="text-gray-600">Em janeiro de 2020, a Biolacqua ampliou significativamente seu escopo de acreditação pelo INMETRO, atingindo a marca de 150 ensaios acreditados.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    // inicia carrossel
+    if (slides.length) { goTo(0); start(); }
+    const hero = document.getElementById('home');
+    hero.addEventListener('mouseenter', stop);
+    hero.addEventListener('mouseleave', start);
+    hero.addEventListener('focusin', stop);
+    hero.addEventListener('focusout', start);
+    hero.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); next(); }
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); goTo(idx - 1, true); }
+    });
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl font-bold text-biolacqua mb-4">Entre em Contato</h2>
-                <div class="w-20 h-1 bg-biolacqua mx-auto"></div>
-            </div>
-            <div class="flex flex-col xl:flex-row">
-                <div class="xl:w-1/2 mb-10 xl:mb-0 xl:pr-8" data-aos="fade-right">
-                    <h3 class="text-2xl font-semibold mb-6">Informações de Contato</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-start xl:items-center">
-                            <i data-feather="map-pin" class="text-biolacqua mr-4 mt-1"></i>
-                            <div>
-                                <h4 class="font-semibold">Endereço</h4>
-                                <p class="text-gray-600">Rua José Tabacow, 170 – Tatuapé<br>São Paulo – SP, CEP 03409-020</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i data-feather="phone" class="text-biolacqua mr-4 mt-1"></i>
-                            <div>
-                                <h4 class="font-semibold">Telefone</h4>
-                                <p class="text-gray-600">(11) 2651-6733 / 2651-6830 — Fax: 2652-9613</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i data-feather="mail" class="text-biolacqua mr-4 mt-1"></i>
-                            <div>
-                                <h4 class="font-semibold">E-mail</h4>
-                                <p class="text-gray-600">biolacqua@biolacqua.com.br</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i data-feather="clock" class="text-biolacqua mr-4 mt-1"></i>
-                            <div>
-                                <h4 class="font-semibold">Horário de Atendimento</h4>
-                                <p class="text-gray-600">Segunda a Sexta: 8h às 18h<br>Sábado: 8h às 12h</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="xl:w-1/2" data-aos="fade-left">
-                    <form id="form-orcamento" class="bg-white p-6 rounded-lg shadow-md">
-                        <!-- Alternância PF/PJ -->
-                        <fieldset class="mb-5">
-                            <legend class="sr-only">Tipo de pessoa</legend>
-                            <div class="flex items-center space-x-6">
-                            <label class="inline-flex items-center space-x-2 cursor-pointer">
-                                <input type="radio" name="tipoPessoa" value="pf" class="text-biolacqua" checked>
-                                <span class="text-gray-800 font-medium">Pessoa Física</span>
-                            </label>
-                            <label class="inline-flex items-center space-x-2 cursor-pointer">
-                                <input type="radio" name="tipoPessoa" value="pj" class="text-biolacqua">
-                                <span class="text-gray-800 font-medium">Pessoa Jurídica</span>
-                            </label>
-                            </div>
-                        </fieldset>
+    // ========= Formulário PF/PJ =========
+    (() => {
+      const form = document.getElementById('form-orcamento');
+      if (!form) return;
 
-                        <!-- Nome (comum) -->
-                        <div class="mb-4">
-                            <label class="block text-gray-700 font-medium mb-2">Nome</label>
-                            <input name="nome" type="text" required
-                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-biolacqua"
-                                placeholder="Nome">
-                        </div>
+      const pfBlocks = Array.from(form.querySelectorAll('.only-pf'));
+      const pjBlocks = Array.from(form.querySelectorAll('.only-pj'));
 
-                        <!-- Apenas PJ -->
-                        <div class="mb-4 only-pj hidden">
-                            <label class="block text-gray-700 font-medium mb-2">Empresa</label>
-                            <input name="empresa" type="text"
-                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-biolacqua"
-                                placeholder="Empresa">
-                        </div>
+      const setHidden = (els, hidden) => {
+        els.forEach(b => {
+          b.classList.toggle('hidden', hidden);
+          b.querySelectorAll('input,select,textarea').forEach(i => i.disabled = hidden);
+        });
+      };
+      const setRequired = (names, req) => {
+        names.forEach(n => { if (form.elements[n]) form.elements[n].required = req; });
+      };
+      function toggleMode(mode) {
+        const isPF = mode === 'pf';
+        setHidden(pfBlocks, !isPF);
+        setHidden(pjBlocks, isPF);
+        // Habilita/Desabilita campos PJ explicitamente
+        if (form.elements['empresa']) form.elements['empresa'].disabled = isPF;
+        if (form.elements['cnpj'])    form.elements['cnpj'].disabled    = isPF;
 
-                        <div class="mb-4 only-pj hidden">
-                            <label class="block text-gray-700 font-medium mb-2">CNPJ</label>
-                            <input name="cnpj" type="text" inputmode="numeric" maxlength="18"
-                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-biolacqua"
-                                placeholder="00.000.000/0000-00" disabled>
-                        </div>
+        setRequired(['cpf'], isPF);
+        setRequired(['empresa','cnpj'], !isPF);
+      }
 
-                        <!-- Apenas PF -->
-                        <div class="mb-4 only-pf">
-                            <label class="block text-gray-700 font-medium mb-2">CPF</label>
-                            <input name="cpf" type="text" inputmode="numeric" maxlength="14"
-                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-biolacqua"
-                                placeholder="000.000.000-00">
-                        </div>
+      document.querySelectorAll('input[name="tipoPessoa"]').forEach(radio => {
+        radio.addEventListener('change', e => toggleMode(e.target.value));
+      });
+      const selected = (document.querySelector('input[name="tipoPessoa"]:checked')?.value) || 'pf';
+      toggleMode(selected);
 
-                        <!-- Endereço / Número e complemento -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="mb-4">
-                            <label class="block text-gray-700 font-medium mb-2">Endereço</label>
-                            <input name="endereco" type="text" required
-                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-biolacqua"
-                                    placeholder="Endereço">
-                            </div>
-                            <div class="mb-4">
-                            <label class="block text-gray-700 font-medium mb-2">Número e Complemento</label>
-                            <input name="numero_complemento" type="text"
-                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-biolacqua"
-                                    placeholder="Número e Complemento">
-                            </div>
-                        </div>
+      // máscaras leves
+      const mask = (el, pattern) => {
+        if (!el) return;
+        el.addEventListener('input', () => {
+          const v = el.value.replace(/\D/g, '');
+          let i = 0, out = '';
+          for (const ch of pattern) {
+            if (ch === '#') out += v[i++] ?? '';
+            else out += (v[i] !== undefined) ? ch : '';
+            if (i >= v.length) break;
+          }
+          el.value = out;
+        });
+      };
+      mask(form.elements['cpf'],  '###.###.###-##');
+      mask(form.elements['cnpj'], '##.###.###/####-##');
+      mask(form.elements['cep'],  '#####-###');
 
-                        <!-- Bairro / CEP / Cidade-UF -->
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div class="mb-4">
-                            <label class="block text-gray-700 font-medium mb-2">Bairro</label>
-                            <input name="bairro" type="text"
-                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-biolacqua"
-                                    placeholder="Bairro">
-                            </div>
-                            <div class="mb-4">
-                            <label class="block text-gray-700 font-medium mb-2">CEP</label>
-                            <input name="cep" type="text" inputmode="numeric" maxlength="9"
-                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-biolacqua"
-                                    placeholder="00000-000">
-                            </div>
-                            <div class="mb-4">
-                            <label class="block text-gray-700 font-medium mb-2">Cidade/UF</label>
-                            <input name="cidade_uf" type="text"
-                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-biolacqua"
-                                    placeholder="Cidade/UF">
-                            </div>
-                        </div>
+      const tel = form.elements['telefone'];
+      if (tel) tel.addEventListener('input', () => {
+        let v = tel.value.replace(/\D/g, '').slice(0, 11);
+        if (v.length >= 2) v = `(${v.slice(0,2)}) ${v.slice(2)}`;
+        if (v.length >= 10) v = v.replace(/(\(\d{2}\)\s)(\d{5})(\d{0,4})/, '$1$2-$3');
+        tel.value = v.trim();
+      });
 
-                        <!-- Telefone / Email -->
-                        <div class="mb-4">
-                            <label class="block text-gray-700 font-medium mb-2">Telefone</label>
-                            <input name="telefone" type="tel"
-                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-biolacqua"
-                                placeholder="(00) 00000-0000">
-                        </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-700 font-medium mb-2">E-mail</label>
-                            <input name="email" type="email" required
-                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-biolacqua"
-                                placeholder="E-mail">
-                        </div>
-
-                        <!-- Descrição -->
-                        <div class="mb-6">
-                            <label class="block text-gray-700 font-medium mb-2">Breve descrição do seu serviço.</label>
-                            <textarea name="descricao" rows="4"
-                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-biolacqua"
-                                    placeholder="Conte brevemente o que você precisa."></textarea>
-                        </div>
-
-                        <button type="submit"
-                                class="w-full bg-biolacqua text-white py-3 rounded-lg font-semibold hover:opacity-95 transition-all">
-                            Enviar Mensagem
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">Biolacqua</h3>
-                    <p class="text-gray-400">Soluções em tratamento de água com tecnologia e qualidade desde 2005.</p>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Links Rápidos</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#home" class="text-gray-400 hover:text-white transition-all">Início</a></li>
-                        <li><a href="#about" class="text-gray-400 hover:text-white transition-all">Sobre Nós</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white transition-all">Serviços</a></li>
-                        <li><a href="#products" class="text-gray-400 hover:text-white transition-all">Produtos</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-all">Contato</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Serviços</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-all">Tratamento de Água</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-all">Filtração</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-all">Ozonização</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-all">Análise de Água</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-all">Manutenção</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Redes Sociais</h4>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition-all">
-                            <i data-feather="facebook" class="w-5 h-5"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-all">
-                            <i data-feather="instagram" class="w-5 h-5"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-all">
-                            <i data-feather="linkedin" class="w-5 h-5"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-all">
-                            <i data-feather="youtube" class="w-5 h-5"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-                <p>&copy; 2023 Biolacqua. Todos os direitos reservados.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="assets/js/script.js"></script>
-	<a href="#" class="whatsapp-float" aria-label="Contato via WhatsApp" target="_blank" rel="noopener">
-		<svg viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-			<path d="M19.11 17.35c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.12-.41-2.14-1.31-.79-.7-1.32-1.57-1.48-1.84-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.46-.16 0-.34-.02-.52-.02s-.48.07-.73.34c-.25.27-.95.93-.95 2.27 0 1.34.97 2.63 1.11 2.81.14.18 1.92 2.93 4.66 4.11.65.28 1.16.45 1.56.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"/>
-			<path d="M26.6 5.41C23.74 2.54 20 1 16.01 1 7.72 1 1 7.72 1 16.01c0 2.64.69 5.2 2 7.46L1 31l7.7-2.01c2.2 1.2 4.69 1.83 7.31 1.83h0C24.3 30.82 31 24.1 31 15.81c0-3.99-1.56-7.74-4.4-10.4zM16.01 28.6h0c-2.4 0-4.76-.64-6.82-1.86l-.49-.29-4.57 1.19 1.22-4.45-.3-.51C3.81 20.53 3.2 18.3 3.2 16.01c0-7.07 5.75-12.82 12.82-12.82 3.42 0 6.64 1.33 9.06 3.75s3.75 5.64 3.75 9.06c-.01 7.06-5.76 12.61-12.82 12.61z"/>
-		</svg>
-	</a>
-    <script>
-        // === Comportamento PF/PJ + máscaras simples (sem libs) ===
-        (() => {
-            const form = document.getElementById('form-orcamento');
-            const pfBlocks = Array.from(form.querySelectorAll('.only-pf'));
-            const pjBlocks = Array.from(form.querySelectorAll('.only-pj'));
-
-            const setHidden = (els, hidden) => {
-            els.forEach(b => {
-                b.classList.toggle('hidden', hidden);
-                b.querySelectorAll('input,select,textarea').forEach(i => i.disabled = hidden);
-            });
-            };
-
-            const setRequired = (names, req) => {
-            names.forEach(n => { if (form.elements[n]) form.elements[n].required = req; });
-            };
-
-            function toggleMode(mode) {
-            const isPF = mode === 'pf';
-            setHidden(pfBlocks, !isPF);
-            setHidden(pjBlocks, isPF);
-            setRequired(['cpf'], isPF);
-            setRequired(['empresa','cnpj'], !isPF);
-            }
-
-            // radios
-            form.closest('section') // procura na mesma seção, se preferir, use document
-            document.querySelectorAll('input[name="tipoPessoa"]').forEach(r => {
-            r.addEventListener('change', e => toggleMode(e.target.value));
-            });
-            toggleMode(document.querySelector('input[name="tipoPessoa"]:checked').value);
-
-            // máscaras leves
-            const mask = (el, pattern) => {
-            if (!el) return;
-            el.addEventListener('input', () => {
-                const v = el.value.replace(/\D/g, '');
-                let i = 0, out = '';
-                for (const ch of pattern) {
-                if (ch === '#') out += v[i++] ?? '';
-                else out += (v[i] !== undefined) ? ch : '';
-                if (i >= v.length) break;
-                }
-                el.value = out;
-            });
-            };
-            mask(form.elements['cpf'],  '###.###.###-##');
-            mask(form.elements['cnpj'], '##.###.###/####-##');
-            mask(form.elements['cep'],  '#####-###');
-            // telefone (DDD + 9 dígitos)
-            const tel = form.elements['telefone'];
-            if (tel) tel.addEventListener('input', () => {
-            let v = tel.value.replace(/\D/g, '').slice(0, 11);
-            if (v.length >= 2) v = `(${v.slice(0,2)}) ${v.slice(2)}`;
-            if (v.length >= 10) v = v.replace(/(\(\d{2}\)\s)(\d{5})(\d{0,4})/, '$1$2-$3');
-            tel.value = v.trim();
-            });
-
-            // submit demonstrativo
-            form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            // Exemplo de envio:
-            // fetch('/api/contato', { method: 'POST', body: new FormData(form) })
-            //   .then(r => r.ok ? alert('Enviado!') : alert('Falha no envio'));
-            alert('Formulário validado! Pronto para enviar.');
-            });
-        })();
-        </script>
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Formulário validado! Pronto para enviar.');
+        // aqui você integra com seu endpoint:
+        // fetch('/api/contato', { method:'POST', body:new FormData(form) })
+        //   .then(r => r.ok ? alert('Enviado!') : alert('Falha no envio'));
+      });
+    })();
+  </script>
 </body>
-</html> 
+</html>

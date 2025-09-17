@@ -39,14 +39,30 @@
 	transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 }
 
-.whatsapp-float:hover {
-	transform: translateY(-2px);
-	box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+.whatsapp-button {
+    background-color: #25D366;
+    color: #ffffff;
+    border-radius: 50px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    position: fixed;
+    bottom: 2vw;
+    right: 2vw;
+    text-decoration: none;
+    z-index: 1000;
+    transition: all 0.3s ease;
 }
-
-.whatsapp-float svg {
-	width: 28px;
-	height: 28px;
+.whatsapp-button:hover {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+.whatsapp-button i {
+    font-size: 100%;
+    line-height: 60px;
+    color: #ffffff;
 }
 @keyframes marquee {
 0% { transform: translateX(0%); }
