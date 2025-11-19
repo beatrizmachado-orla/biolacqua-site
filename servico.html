@@ -109,13 +109,28 @@
   const SERVICES_JSON_PATH = "./assets/data/services.json?v=" + Date.now();
   const $  = (s) => document.querySelector(s);
 
-  function show(el){ if(el){ el.classList.remove('hidden'); el.style.removeProperty('display'); } }
-  function hide(el){ if(el){ el.classList.add('hidden'); el.style.display = 'none'; } }
+  function show(el){
+    if(el){
+      el.classList.remove('hidden');
+      el.style.removeProperty('display');
+    }
+  }
+
+  function hide(el){
+    if(el){
+      el.classList.add('hidden');
+      el.style.display = 'none';
+    }
+  }
+
   function setTextOrHide(selector, value){
     const el = $(selector);
     if (!el) return false;
     const has = value !== undefined && value !== null && String(value).trim() !== "";
-    if (!has){ hide(el); return false; }
+    if (!has){
+      hide(el);
+      return false;
+    }
     el.textContent = value;
     show(el);
     return true;
@@ -171,17 +186,34 @@
     setTextOrHide("#service-intro",   data.intro);
     setTextOrHide("#service-intro-2", data.intro2);
 
-    // Metodologia (mantém link de escopo se houver)
-    setTextOrHide("#service-method", data.method);
-    if (data.scopeLink){
-      const refs = $("#service-refs");
-      const a    = $("#service-scope-link");
-      if (a) a.href = data.scopeLink;
+    // --- Metodologia (só mostra se tiver conteúdo) ---
+    const hasMethod = setTextOrHide("#service-method", data.method);
+
+    let hasScope = false;
+    const refs = $("#service-refs");
+    const scopeLinkEl = $("#service-scope-link");
+    if (data.scopeLink && String(data.scopeLink).trim() !== "") {
+      if (scopeLinkEl) scopeLinkEl.href = data.scopeLink;
       show(refs);
+      hasScope = true;
     } else {
-      hide($("#service-refs"));
+      hide(refs);
     }
-    setTextOrHide("#service-legal", data.legal);
+
+    const hasLegal = setTextOrHide("#service-legal", data.legal);
+
+    const metodologiaSection = $("#metodologia");
+    const hasMetodologiaContent = hasMethod || hasScope || hasLegal;
+
+    if (!hasMetodologiaContent && metodologiaSection) {
+      // Esconde a seção inteira
+      hide(metodologiaSection);
+      // Remove/oculta link do TOC
+      const tocLink = document.querySelector('.toc a[href="#metodologia"]');
+      if (tocLink && tocLink.parentElement) {
+        hide(tocLink.parentElement);
+      }
+    }
 
     // Sidebar dinâmica (lista de serviços)
     const order   = payload.order || Object.keys(items);
@@ -199,8 +231,14 @@
     const prevSlug = order[(idx - 1 + order.length) % order.length];
     const nextSlug = order[(idx + 1) % order.length];
     const prevA = $("#prev-service"), nextA = $("#next-service");
-    if (prevA){ prevA.href = `servico.html?s=${prevSlug}`; prevA.textContent = "← " + (items[prevSlug]?.title || prevSlug); }
-    if (nextA){ nextA.href = `servico.html?s=${nextSlug}`; nextA.textContent = (items[nextSlug]?.title || nextSlug) + " →"; }
+    if (prevA){
+      prevA.href = `servico.html?s=${prevSlug}`;
+      prevA.textContent = "← " + (items[prevSlug]?.title || prevSlug);
+    }
+    if (nextA){
+      nextA.href = `servico.html?s=${nextSlug}`;
+      nextA.textContent = (items[nextSlug]?.title || nextSlug) + " →";
+    }
 
     if (window.feather) feather.replace();
   }
@@ -211,11 +249,18 @@
     main();
   }
 
-  // TOC highlight (apenas as duas seções restantes)
+  // TOC highlight (Visão geral + Metodologia, se existir)
   document.addEventListener('DOMContentLoaded', () => {
     const links = [...document.querySelectorAll('.toc a')];
-    const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
-    const setActive = (id) => links.forEach(a => a.classList.toggle('text-biolacqua', a.getAttribute('href') === '#'+id));
+    const sections = links
+      .map(a => document.querySelector(a.getAttribute('href')))
+      .filter(Boolean);
+
+    const setActive = (id) => {
+      links.forEach(a =>
+        a.classList.toggle('text-biolacqua', a.getAttribute('href') === '#' + id)
+      );
+    };
 
     const obs = new IntersectionObserver((entries) => {
       const visible = entries
